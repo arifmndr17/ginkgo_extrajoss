@@ -1912,9 +1912,10 @@ static struct spi_driver fts_ts_driver = {
 #ifdef CONFIG_PM
 		.pm = &fts_dev_pm_ops,
 #endif
-		.of_match_table = of_match_ptr(fts_dt_match),
-	},
-	.id_table = fts_ts_id,
+        .of_match_table = of_match_ptr(fts_dt_match),
+        .probe_type = PROBE_PREFER_ASYNCHRONOUS,
+    },
+    .id_table = fts_ts_id,
 };
 
 static int __init fts_ts_init(void)
